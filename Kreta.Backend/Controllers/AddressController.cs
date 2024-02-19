@@ -10,7 +10,7 @@ namespace Kreta.Backend.Controllers
     [Route("api/[controller]")]
     public class AddressController : BaseController<Address, AddressDto>
     {
-        public AddressController(Assambler<Address, AddressDto> assembler, IRepositoryBase<Address> repo) : base(assembler, repo)
+        public AddressController(AddressAssambler assembler, IAddressRepo repo) : base(assembler, repo)
         {
         }
     }
