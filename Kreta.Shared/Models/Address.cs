@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Kreta.Shared.Models
 {
-    public class Address
+    public class Address : IDbEntity<Address>
     {
+        public Guid Id { get; set; }
         public int ZipCode { get; set; }
         public string Street { get; set; } = string.Empty;
 
         public bool IsValidZipCode => ZipCode >0;
         public bool IsStreetValid => ! string.IsNullOrEmpty(Street);
+
+        // Konstruktorok
+        // ToString
     }
 }
