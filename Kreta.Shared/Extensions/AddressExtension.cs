@@ -3,11 +3,11 @@ using Kreta.Shared.Models;
 
 namespace Kreta.Shared.Extensions
 {
-    public class AddressExtension
+    public static class AddressExtension
     {
-        public AddressDto ToDto()
+        public static AddressDto ToDto()
         { }
 
-        public Address ToModel() { }
+        public static Address ToModel() { }
     }
 }
