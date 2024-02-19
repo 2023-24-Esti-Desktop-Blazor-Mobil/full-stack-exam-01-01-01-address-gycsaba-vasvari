@@ -83,7 +83,7 @@
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                         Tag="{StaticResource colorMidleGreen}"
-                        Command=""
+                        Command="{Binding ShowOtherDataCommand}"
                         >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Database" Style="{StaticResource menuButtonIcon}"/>
