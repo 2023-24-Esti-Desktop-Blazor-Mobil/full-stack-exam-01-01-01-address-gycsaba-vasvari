@@ -1,4 +1,5 @@
-﻿using Kreta.Shared.Models.SchoolCitizens;
+﻿using Kreta.Shared.Models;
+using Kreta.Shared.Models.SchoolCitizens;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Net;
@@ -140,6 +141,23 @@ namespace Kreta.Backend.Context
                 },
             };
             modelBuilder.Entity<Teacher>().HasData(teachers);
+
+            List<Address> addresses = new List<Address>()
+            {
+                new Address()
+                {
+                    Id=Guid.NewGuid(),
+                    ZipCode=6725,
+                    Street="Googol utca"
+                },
+                new Address()
+                {
+                    Id= Guid.NewGuid(),
+                    ZipCode=6720,
+                    Street="Dugonics Andás tér"
+                },
+            };
+            modelBuilder.Entity<Address>().HasData(addresses);
 
         }
     }
