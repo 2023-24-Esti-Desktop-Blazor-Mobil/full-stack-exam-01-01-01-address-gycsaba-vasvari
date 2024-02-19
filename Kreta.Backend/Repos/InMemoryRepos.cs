@@ -36,4 +36,7 @@ namespace Kreta.Backend.Repos
         {
         }
     }
+
+    public class AddressInMemoryRepo : AddressRepo<KretaInMemoryContext>
+    { }
 }

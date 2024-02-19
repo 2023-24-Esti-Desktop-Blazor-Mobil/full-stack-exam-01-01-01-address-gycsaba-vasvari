@@ -40,6 +40,7 @@ namespace Kreta.Backend.Extensions
             services.AddScoped<IParentRepo, ParentInMemoryRepo>();
             services.AddScoped<ITeacherRepo, TeacherInMemoryRepo>();
             services.AddScoped<ISubjectRepo, SubjectInMemoryRepo>();
+            services.AddScoped<IAddressRepo, >
         }
 
         public static void ConfigureAssamblers(this IServiceCollection services)
