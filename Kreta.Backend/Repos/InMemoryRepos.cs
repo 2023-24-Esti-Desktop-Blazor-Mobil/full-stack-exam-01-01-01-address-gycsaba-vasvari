@@ -38,5 +38,9 @@ namespace Kreta.Backend.Repos
     }
 
     public class AddressInMemoryRepo : AddressRepo<KretaInMemoryContext>
-    { }
+    {
+        public AddressInMemoryRepo(IDbContextFactory<KretaInMemoryContext> dbContextFactory) : base(dbContextFactory)
+        {
+        }
+    }
 }
