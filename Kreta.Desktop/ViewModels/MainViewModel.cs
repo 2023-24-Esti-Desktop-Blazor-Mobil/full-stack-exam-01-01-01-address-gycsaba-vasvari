@@ -3,10 +3,12 @@ using CommunityToolkit.Mvvm.Input;
 using FontAwesome.Sharp;
 using Kreta.Desktop.ViewModels.Base;
 using Kreta.Desktop.ViewModels.ControlPanel;
+using Kreta.Desktop.ViewModels.OtherData;
 using Kreta.Desktop.ViewModels.SchoolCitizens;
 using Kreta.Desktop.ViewModels.SchoolClasses;
 using Kreta.Desktop.ViewModels.SchoolGrades;
 using Kreta.Desktop.ViewModels.SchoolSubjects;
+using Kreta.Desktop.Views.OtherData;
 
 namespace Kreta.Desktop.ViewModels
 {
@@ -17,7 +19,7 @@ namespace Kreta.Desktop.ViewModels
         private SchoolClassesViewModel _schoolClassesViewModel;
         private SchoolSubjectsViewModel _schoolSubjectsViewModel;
         private SchoolGradesViewModel _schoolOsztalyzatokViewModel;
-
+        private OtherDataViewModel _otherDataViewModel;
 
         public MainViewModel()
         {
@@ -26,6 +28,7 @@ namespace Kreta.Desktop.ViewModels
             _schoolClassesViewModel = new SchoolClassesViewModel();
             _schoolSubjectsViewModel = new SchoolSubjectsViewModel();
             _schoolOsztalyzatokViewModel = new SchoolGradesViewModel();
+            _otherDataViewModel = new OtherDataViewModel();
 
             _currentChildView = new ControlPanelViewModel();
         }
@@ -35,7 +38,8 @@ namespace Kreta.Desktop.ViewModels
             SchoolCitizensViewModel schoolCitizensViewModel,
             SchoolClassesViewModel schoolClassesViewModel,
             SchoolSubjectsViewModel schoolSubjectsViewModel,
-            SchoolGradesViewModel schoolOsztalyzatokViewModel
+            SchoolGradesViewModel schoolOsztalyzatokViewModel,
+            OtherDataViewModel otherDataViewModel
 
             )
         {
@@ -44,6 +48,7 @@ namespace Kreta.Desktop.ViewModels
             _schoolClassesViewModel = schoolClassesViewModel;
             _schoolSubjectsViewModel = schoolSubjectsViewModel;
             _schoolOsztalyzatokViewModel = schoolOsztalyzatokViewModel;
+            _otherDataViewModel=otherDataViewModel;
 
             CurrentChildView = _controlPanelViewModel;
             ShowDashbord();
