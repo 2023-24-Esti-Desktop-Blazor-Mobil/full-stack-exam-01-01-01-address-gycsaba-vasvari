@@ -101,5 +101,13 @@ namespace Kreta.Desktop.ViewModels
             Icon = IconChar.GraduationCap;
             CurrentChildView = _schoolOsztalyzatokViewModel;
         }
+
+        [RelayCommand]
+        public void ShowOtherData()
+        {
+            Caption = "Egyéb információk";
+            Icon = IconChar.Database;
+            CurrentChildView = _otherDataViewModel;
+        }
     }
 }
