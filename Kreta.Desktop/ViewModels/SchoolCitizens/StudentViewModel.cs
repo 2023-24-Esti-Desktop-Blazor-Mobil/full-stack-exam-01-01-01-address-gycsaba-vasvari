@@ -32,7 +32,7 @@ namespace Kreta.Desktop.ViewModels.SchoolCitizens
         {
             //Students.Add(new Student("Elek", "Teszt", System.DateTime.Now, 9, SchoolClassType.ClassA, ""));
             SelectedStudent = new Student();
-            SelectedEducationLevel = _educationLevels[0];
+            SelectedEducationLevel = string.Empty;
         }
 
         [RelayCommand]

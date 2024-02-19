@@ -58,7 +58,7 @@ namespace Kreta.Desktop
                     mainView.Show();
                 } 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
         }
