@@ -10,6 +10,8 @@
                     xmlns:schoolSubjectsView="clr-namespace:Kreta.Desktop.Views.SchoolSubjects"
                     xmlns:schoolGradesViewModel="clr-namespace:Kreta.Desktop.ViewModels.SchoolGrades"
                     xmlns:schoolGradesView="clr-namespace:Kreta.Desktop.Views.SchoolGrade"
+                    xmlns:schoolOtherDataViewModel="clr-namespace:Kreta.Desktop.ViewModels.OtherData"
+                    xmlns:schoolOtherDataView="clr-namespace:Kreta.Desktop.Views.OtherData"
                     >
     <DataTemplate DataType="{x:Type controlPanelViewModels:ControlPanelViewModel}">
         <controlPanelView:ControlPanelView/>
