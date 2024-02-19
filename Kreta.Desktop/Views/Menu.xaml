@@ -75,10 +75,19 @@
                     <RadioButton Style="{StaticResource menuButton}"
                              Tag="{StaticResource colorMidleGreen}"
                              Command="{Binding ShowOsztalyzatokCommand}"
-             >
+                        >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="GraduationCap" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Osztályzatok" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                        Tag="{StaticResource colorMidleGreen}"
+                        Command=""
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Database" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Egyéb infók" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
