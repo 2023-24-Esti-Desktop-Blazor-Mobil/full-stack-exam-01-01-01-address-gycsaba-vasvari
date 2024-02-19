@@ -5,9 +5,9 @@ namespace Kreta.Shared.Extensions
 {
     public static class AddressExtension
     {
-        public static AddressDto ToDto()
+        public static AddressDto ToDto(this Address address)
         { }
 
-        public static Address ToModel() { }
+        public static Address ToModel(this AddressDto addressDto) { }
     }
 }
