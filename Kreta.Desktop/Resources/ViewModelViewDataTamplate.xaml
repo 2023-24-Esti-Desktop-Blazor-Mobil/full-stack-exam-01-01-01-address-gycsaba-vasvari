@@ -78,6 +78,8 @@
         <schoolSubjectsView:SubjectsOfSchoollClassesView />
     </DataTemplate>
 
-
+    <DataTemplate DataType="{x:Type otherDataViewModel:OtherDataViewModel}">
+        <otherDataView:OtherDataView />
+    </DataTemplate>
 
 </ResourceDictionary>
