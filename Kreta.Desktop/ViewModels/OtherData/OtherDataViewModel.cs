@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using FontAwesome.Sharp;
 using Kreta.Desktop.ViewModels.Base;
-
+using System.Threading.Tasks;
 
 namespace Kreta.Desktop.ViewModels.OtherData
 {
@@ -23,8 +23,9 @@ namespace Kreta.Desktop.ViewModels.OtherData
         }
 
         [RelayCommand]
-        private void ShowAddressView()
-        {            
+        private async Task ShowAddressView()
+        {
+            await _addressViewModel.InitializeAsync();
             CurrentChildView = _addressViewModel;
         }
     }
