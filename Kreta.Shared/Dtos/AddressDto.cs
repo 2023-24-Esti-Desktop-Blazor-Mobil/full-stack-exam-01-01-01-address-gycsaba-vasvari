@@ -10,5 +10,6 @@ namespace Kreta.Shared.Dtos
     {
         public int ZipCode { get; set; }
         public string Street { get; set; } = string.Empty;
+        public int HouseNumber { get; set; }
     }
 }

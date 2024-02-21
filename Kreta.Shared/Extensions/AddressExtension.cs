@@ -11,6 +11,7 @@ namespace Kreta.Shared.Extensions
             {
                 ZipCode = address.ZipCode,
                 Street = address.Street,
+                HouseNumber = address.HouseNumber,
             };
         }
 
@@ -20,6 +21,7 @@ namespace Kreta.Shared.Extensions
             {
                 ZipCode = addressDto.ZipCode,
                 Street = addressDto.Street,
+                HouseNumber = addressDto.HouseNumber,
             };
         }
     }
