@@ -81,5 +81,8 @@
     <DataTemplate DataType="{x:Type otherDataViewModel:OtherDataViewModel}">
         <otherDataView:OtherDataView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type otherDataViewModel:AddressViewModel}">
+        <otherDataView:AddressView />
+    </DataTemplate>
 
 </ResourceDictionary>

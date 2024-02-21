@@ -158,6 +158,12 @@ namespace KretaDesktop.Extensions
             {
                 DataContext = s.GetRequiredService<OtherDataViewModel>()
             });
+            // OtherData
+            services.AddSingleton<AddressViewModel>();
+            services.AddSingleton<AddressView>(s => new AddressView()
+            {
+                DataContext = s.GetRequiredService<AddressViewModel>()
+            });
         }
     }
 }
