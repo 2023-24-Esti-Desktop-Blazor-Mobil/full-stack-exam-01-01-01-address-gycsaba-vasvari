@@ -1,4 +1,5 @@
-﻿using Kreta.Desktop.Views;
+﻿using Kreta.Desktop.Extensions;
+using Kreta.Desktop.Views;
 using Kreta.Desktop.Views.Login;
 using KretaDesktop.Extensions;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,7 @@ namespace Kreta.Desktop
             host = Host.CreateDefaultBuilder()
                 .ConfigureServices(services =>
                 {
+                    services.ConfigureHttpService();
                     services.ConfigureViewViewModels();
                 })
                 .Build();
