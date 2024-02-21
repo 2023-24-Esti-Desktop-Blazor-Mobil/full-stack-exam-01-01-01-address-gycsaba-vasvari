@@ -3,7 +3,9 @@ using Kreta.Shared.Extensions;
 using Kreta.Shared.Models;
 using Kreta.Shared.Models.SchoolCitizens;
 using Kreta.Shared.Responses;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http.Json;
 
 namespace Kreta.HttpService.Service
@@ -15,6 +17,14 @@ namespace Kreta.HttpService.Service
         public AddressService()
         {
             _httpClient = new HttpClient();
+        }
+
+        public AddressService(IHttpClientFactory? httpClientFactory)
+        {
+            if (httpClientFactory is not null)
+            {
+                _httpClient = httpClientFactory.CreateClient("KretaApi");
+            }
         }
 
         public async Task<List<Address>> SelectAllAddressAsync()
@@ -38,13 +48,45 @@ namespace Kreta.HttpService.Service
             return new List<Address>();
         }
 
-        public AddressService(IHttpClientFactory? httpClientFactory) 
+        public async Task<ControllerResponse> UpdateAsync(Address address)
         {
-            if (httpClientFactory is not null)
+            ControllerResponse defaultResponse = new();
+            if (_httpClient is not null)
             {
-                _httpClient = httpClientFactory.CreateClient("KretaApi");
+                try
+                {
+                    AddressDto addressDto = address.ToDto();
+                    HttpResponseMessage httpResponse = await _httpClient.PutAsJsonAsync("api/Student", addressDto);
+                    if (httpResponse.StatusCode == HttpStatusCode.BadRequest)
+                    {
+                        string content = await httpResponse.Content.ReadAsStringAsync();
+                        ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
+                        if (response is null)
+                        {
+                            defaultResponse.ClearAndAddError("A módosítás http kérés hibát okozott!");
+                        }
+                        else return response;
+                    }
+                    else if (!httpResponse.IsSuccessStatusCode)
+                    {
+                        httpResponse.EnsureSuccessStatusCode();
+                    }
+                    else
+                    {
+                        return defaultResponse;
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
+            defaultResponse.ClearAndAddError("Az adatok frissítés nem lehetséges!");
+            return defaultResponse;
         }
+
+
         public Task<ControllerResponse> DeleteAsync(Guid id)
         {
             throw new NotImplementedException();
@@ -55,9 +97,6 @@ namespace Kreta.HttpService.Service
             throw new NotImplementedException();
         }    
 
-        public Task<ControllerResponse> UpdateAsync(Address address)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
