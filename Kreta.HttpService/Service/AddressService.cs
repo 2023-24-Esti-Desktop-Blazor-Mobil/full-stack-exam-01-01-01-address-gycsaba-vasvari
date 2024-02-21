@@ -123,9 +123,41 @@ namespace Kreta.HttpService.Service
             return defaultResponse;
         }
 
-        public Task<ControllerResponse> InsertAsync(Address address)
+        public async Task<ControllerResponse> InsertAsync(Address address)
         {
-            throw new NotImplementedException();
+            ControllerResponse defaultResponse = new();
+            if (_httpClient is not null)
+            {
+                try
+                {
+                    AddressDto addressDto = address.ToDto();
+                    HttpResponseMessage httpResponse = await _httpClient.PostAsJsonAsync("api/Student", addressDto);
+                    if (httpResponse.StatusCode == HttpStatusCode.BadRequest)
+                    {
+                        string content = await httpResponse.Content.ReadAsStringAsync();
+                        ControllerResponse? response = JsonConvert.DeserializeObject<ControllerResponse>(content);
+                        if (response is null)
+                        {
+                            defaultResponse.ClearAndAddError("A mentés http kérés hibát okozott!");
+                        }
+                        else return response;
+                    }
+                    else if (!httpResponse.IsSuccessStatusCode)
+                    {
+                        httpResponse.EnsureSuccessStatusCode();
+                    }
+                    else
+                    {
+                        return defaultResponse;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+            defaultResponse.ClearAndAddError("Az adatok mentése nem lehetséges!");
+            return defaultResponse;
         }    
 
        
