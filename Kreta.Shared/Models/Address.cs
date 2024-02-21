@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kreta.Shared.Models
+﻿namespace Kreta.Shared.Models
 {
     public class Address : IDbEntity<Address>
     {
@@ -17,5 +11,9 @@ namespace Kreta.Shared.Models
 
         // Konstruktorok
         // ToString
+        public override string ToString()
+        {
+            return $"{ZipCode} {Street}";
+        }
     }
 }
