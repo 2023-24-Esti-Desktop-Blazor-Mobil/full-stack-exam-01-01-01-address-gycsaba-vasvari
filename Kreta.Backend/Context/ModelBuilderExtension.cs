@@ -148,13 +148,16 @@ namespace Kreta.Backend.Context
                 {
                     Id=Guid.NewGuid(),
                     ZipCode=6725,
-                    Street="Googol utca"
+                    Street="Googol utca",
+                    HouseNumber=11,
                 },
                 new Address()
                 {
                     Id= Guid.NewGuid(),
                     ZipCode=6720,
-                    Street="Dugonics Andás tér"
+                    Street="Dugonics Andás tér",
+                    HouseNumber=12,
+
                 },
             };
             modelBuilder.Entity<Address>().HasData(addresses);
