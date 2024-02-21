@@ -22,6 +22,7 @@ namespace Kreta.Desktop
             host = Host.CreateDefaultBuilder()
                 .ConfigureServices(services =>
                 {
+                    services.ConfigureHttpClient();
                     services.ConfigureHttpService();
                     services.ConfigureViewViewModels();
                 })
